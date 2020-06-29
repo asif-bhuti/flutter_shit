@@ -14,7 +14,8 @@ class Home extends StatelessWidget {
               customText(), customText(), customText()),
           customRow(
               customText(), customText(), customText()),
-          customImage()
+          customImage(),
+          customRaisedButton()
         ]),
       ),
     );
@@ -62,9 +63,33 @@ class customText extends StatelessWidget {
       ),
     ));
   }
-
   customText() {
     i++;
     this.string='String $i';
+  }
+}
+
+class customRaisedButton extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: RaisedButton(
+        child: Text('What the heck'),
+        elevation: 6.0,
+        onPressed: (){
+            pressDialogue(context);
+        },
+      )
+    );
+  }
+
+  void pressDialogue(BuildContext context){
+    var alertDia = AlertDialog(
+      title: Text('halalu'),
+      content: Text('lkfkkfksfsdfkflld'),
+    );
+    showDialog(context: context,builder: (BuildContext context){
+      return alertDia;
+    });
   }
 }
