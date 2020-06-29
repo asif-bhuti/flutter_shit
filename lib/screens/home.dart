@@ -8,12 +8,9 @@ class Home extends StatelessWidget {
         alignment: Alignment.center,
         color: Colors.amberAccent,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          customRow(
-              customText(), customText(), customText()),
-          customRow(
-              customText(), customText(), customText()),
-          customRow(
-              customText(), customText(), customText()),
+          customRow(customText(), customText(), customText()),
+          customRow(customText(), customText(), customText()),
+          customRow(customText(), customText(), customText()),
           customImage(),
           customRaisedButton()
         ]),
@@ -63,33 +60,36 @@ class customText extends StatelessWidget {
       ),
     ));
   }
+
   customText() {
     i++;
-    this.string='String $i';
+    this.string = 'String $i';
   }
 }
 
-class customRaisedButton extends StatelessWidget{
+// ignore: camel_case_types
+class customRaisedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: RaisedButton(
-        child: Text('What the heck'),
-        elevation: 6.0,
-        onPressed: (){
-            pressDialogue(context);
-        },
-      )
-    );
+        child: RaisedButton(
+      child: Text('What the heck'),
+      elevation: 6.0,
+      onPressed: () {
+        pressDialogue(context);
+      },
+    ));
   }
 
-  void pressDialogue(BuildContext context){
+  void pressDialogue(BuildContext context) {
     var alertDia = AlertDialog(
       title: Text('halalu'),
       content: Text('lkfkkfksfsdfkflld'),
     );
-    showDialog(context: context,builder: (BuildContext context){
-      return alertDia;
-    });
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alertDia;
+        });
   }
 }
