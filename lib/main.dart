@@ -1,3 +1,4 @@
+/*
 import "package:flutter/material.dart";
 import 'screens/first_screen.dart';
 
@@ -16,4 +17,16 @@ class Flutter_shit extends StatelessWidget {
             body: First_Screen()));
   }
   }
+
+*/
+import 'package:flutter/material.dart';
+import 'package:flutterappshit/screens/home.dart';
+
+void main(){
+  runApp(MaterialApp(
+    title: 'Whatever',
+    home: Home(),
+  )
+  );
+}
 
