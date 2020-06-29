@@ -24,6 +24,7 @@ import 'package:flutterappshit/screens/home.dart';
 
 void main(){
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: 'Whatever',
     home: Home(),
   )
