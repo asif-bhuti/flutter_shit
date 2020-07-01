@@ -1,43 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappshit/screens/home.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: 'Whatever',
-    home: Scaffold(
-      appBar: AppBar(title: Text('Long List')),
-      body: getListView(),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Shows some message',
-          child: Icon(Icons.add)),
-    ),
-  ));
+void main() => runApp(FavoriteCity());
+
+class FavoriteCity extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _FavoriteCity();
+  }
 }
 
-void showSnackBar(BuildContext context, String item) {
-  Scaffold.of(context).showSnackBar(SnackBar(
-    content: Text("You tapped $item"),
-    duration: Duration(milliseconds: 500),
-  ));
-}
+class _FavoriteCity extends State<FavoriteCity> {
+  String city = '';
 
-List getLongList() {
-  return List<String>.generate(20, (index) => 'Item $index');
-}
-
-Widget getListView() {
-  var listItems = getLongList();
-  return ListView.builder(
-    itemBuilder: (context, index) {
-      return ListTile(
-        title: Text(listItems[index]),
-        onTap: () {
-          showSnackBar(context, listItems[index]);
-        },
-      );
-    },
-    itemCount: listItems.length,
-  );
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('City'),
+        ),
+        body: Container(
+          margin: EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              TextField(
+                onSubmitted: (String string) {
+                  setState(() {
+                    city = string;
+                  });
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                  'You entered city: $city',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
