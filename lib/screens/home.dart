@@ -73,7 +73,7 @@ class customRaisedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: RaisedButton(
-      child: Text('What the heck'),
+      child: Text('Press to see dialogue'),
       elevation: 6.0,
       onPressed: () {
         pressDialogue(context);
@@ -82,14 +82,13 @@ class customRaisedButton extends StatelessWidget {
   }
 
   void pressDialogue(BuildContext context) {
-    var alertDia = AlertDialog(
-      title: Text('halalu'),
-      content: Text('lkfkkfksfsdfkflld'),
-    );
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return alertDia;
+          return AlertDialog(
+            title: Text('Dialog Box'),
+            content: Text('this shows some content'),
+          );
         });
   }
 }
